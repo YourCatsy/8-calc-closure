@@ -14,7 +14,7 @@ console.log(calculator.get());
 
 function createCalculator(number) {
     if (isNaN(number)) {
-        return NaN;
+       number = 0;
     }
 
     const calculator = {
