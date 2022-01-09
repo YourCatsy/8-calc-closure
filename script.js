@@ -12,16 +12,17 @@ calculator.add(10);
 calculator.add('qwe');
 console.log(calculator.get());
 
-function createCalculator(initialNumber) {
-    const calculator = {
-        number: 0,
-        add: (secondOperand) => isNaN(secondOperand) ? NaN : calculator.number += secondOperand,
-        sub: (secondOperand) => isNaN(secondOperand) ? NaN : calculator.number -= secondOperand,
-        get: () => calculator.number,
-        set: (newNumber) => isNaN(newNumber) ? NaN : calculator.number = newNumber,
+function createCalculator(number) {
+    if (isNaN(number)) {
+        return NaN;
     }
 
-    calculator.set(initialNumber);
+    const calculator = {
+        add: (secondOperand) => isNaN(secondOperand) ? NaN : number += secondOperand,
+        sub: (secondOperand) => isNaN(secondOperand) ? NaN : number -= secondOperand,
+        get: () => number,
+        set: (newNumber) => isNaN(newNumber) ? NaN : number = newNumber,
+    }
 
     return calculator;
 }
